@@ -1,42 +1,26 @@
-import React from "react";
+import Post from "./Post";
 import Title from "./Title";
-
+import { posts } from "../constant/posts";
+import Button from "./Button";
 const Posts = () => {
   return (
-    <section className="bg-white h-full flex-1 p-4 rounded-lg shadow-lg space-y-6">
-      <Title text="All Jobs" />
-
-      <div className="grid grid-cols-2 gap-4">
-        {/* Item1 */}
-        <div>
-          <img src="/images/image1.jpg" alt="image1" />
-          <h2 className="text-lg font-semibold">
-            CBN reinstates Jimoh Musa as director of key payments unit
-          </h2>
-          <p>
-            Nigeria’s Central Bank (CBN) has reinstated Jimoh Musa Itopa, a
-            director in the Payments System Management Department (PSMD). His
-            return signals a significant leadership change in the crucial
-            department responsible for licensing payment switching companies,
-            regulating agent banks, and overseeing cashless policies and open
-            banking initiatives. In 2023, he was reassigned to the Capacity
-            Development Department, a unit responsible for training CBN staff.
-          </p>
-        </div>
-        {/* Item1 */}
-        <div>
-          <img src="/images/image2.jpg" alt="image2" />
-          <h2>CBN reinstates Jimoh Musa as director of key payments unit</h2>
-          <p>
-            Nigeria’s Central Bank (CBN) has reinstated Jimoh Musa Itopa, a
-            director in the Payments System Management Department (PSMD). His
-            return signals a significant leadership change in the crucial
-            department responsible for licensing payment switching companies,
-            regulating agent banks, and overseeing cashless policies and open
-            banking initiatives. In 2023, he was reassigned to the Capacity
-            Development Department, a unit responsible for training CBN staff.
-          </p>
-        </div>
+    <section className="bg-white h-full flex-1 md:p-4 p-2 rounded-lg shadow-lg space-y-6 ">
+      <div className="md:block flex justify-between items-center">
+        <Title text="All Jobs" />
+        <Button
+          className="text-white w-[150px] h-[48px] md:hidden block"
+          text="Add Post"
+        />
+      </div>
+      <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-3">
+        {posts?.map((post) => (
+          <Post
+            key={post.id}
+            image={post.image}
+            title={post.title}
+            body={post.body}
+          />
+        ))}
       </div>
     </section>
   );
