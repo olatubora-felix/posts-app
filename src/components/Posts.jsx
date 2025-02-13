@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import Post from "./Post";
 import Title from "./Title";
-import { posts } from "../constant/posts";
 import Button from "./Button";
-const Posts = () => {
+
+const Posts = ({ posts }) => {
   return (
     <section className="bg-white h-full flex-1 md:p-4 p-2 rounded-lg shadow-lg space-y-6 ">
       <div className="md:block flex justify-between items-center">

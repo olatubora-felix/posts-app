@@ -1,22 +1,25 @@
-import React from "react";
-
-const Input = (props) => {
+/* eslint-disable react/prop-types */
+const Input = ({ name, label, type, placeholder, value, onChange }) => {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={props.name} className="text-gray-500 font-medium">
-        {props.label}
+      <label htmlFor={name} className="text-gray-500 font-medium">
+        {label}
       </label>
-      {props.type === "textarea" ? (
+      {type === "textarea" ? (
         <textarea
           type="text"
           placeholder="Enter Post Body"
           className="w-full border border-gray-500 outline-none py-2 px-4 rounded-md placeholder:italic"
+          onChange={onChange}
+          value={value}
         ></textarea>
       ) : (
         <input
-          type={props.type}
-          placeholder={props.placeholder}
+          type={type}
+          placeholder={placeholder}
           className="w-full border border-gray-500 outline-none py-2 px-4 rounded-md placeholder:italic"
+          onChange={onChange}
+          value={value}
         />
       )}
     </div>
