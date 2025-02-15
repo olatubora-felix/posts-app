@@ -8,6 +8,7 @@ const Input = ({ name, label, type, placeholder, value, onChange }) => {
       {type === "textarea" ? (
         <textarea
           type="text"
+          name={name}
           placeholder="Enter Post Body"
           className="w-full border border-gray-500 outline-none py-2 px-4 rounded-md placeholder:italic"
           onChange={onChange}
@@ -16,6 +17,7 @@ const Input = ({ name, label, type, placeholder, value, onChange }) => {
       ) : (
         <input
           type={type}
+          name={name}
           placeholder={placeholder}
           className="w-full border border-gray-500 outline-none py-2 px-4 rounded-md placeholder:italic"
           onChange={onChange}
